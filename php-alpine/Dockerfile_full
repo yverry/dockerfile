@@ -27,7 +27,6 @@ RUN apk update && apk add --no-cache postgresql-dev \
 	    icu-dev \
 	    gettext-dev \
 	    re2c \
-	    zlib-dev \
 	    gmp-dev && \
     pecl install apcu redis && \
     docker-php-ext-configure gd --with-webp --with-jpeg --with-freetype && \
@@ -54,8 +53,7 @@ RUN apk update && apk add --no-cache imagemagick \
 	libzip \
 	libpng \
 	libwebp \
-	libjpeg-turbo \
-	icu-libs
+	libjpeg-turbo
 
 # copy so
 COPY --from=builder /usr/local/lib/php/extensions/no-debug-non-zts-20200930/*.so /usr/local/lib/php/extensions/no-debug-non-zts-20200930/
